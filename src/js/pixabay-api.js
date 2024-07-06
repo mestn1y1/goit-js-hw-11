@@ -1,10 +1,10 @@
-function getPicturesByQuery(query) {
+export function getPicturesByQuery(query) {
   const API_KEY = '44784729-ebc9a0f5cc587c2700d41657d';
   const imageType = 'photo';
   const orientation = 'horizontal';
   const safeSearch = true;
 
-  const url = `https://pixabay.com/api?key=${API_KEY}&q=${query}&image_type=${imageType}&orientation=${orientation}&safesearch=${safeSearch}`;
+  const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=${imageType}&orientation=${orientation}&safesearch=${safeSearch}`;
 
   return fetch(url).then(res => {
     if (!res.ok) {
@@ -14,7 +14,3 @@ function getPicturesByQuery(query) {
     return res.json();
   });
 }
-
-getPicturesByQuery()
-  .then(data => console.log(data))
-  .catch(err => console.error('Fetch Error : ', err));
